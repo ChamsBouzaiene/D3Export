@@ -84,7 +84,7 @@ function preprocess(svg, config) {
   const rect = svg.getBoundingClientRect();
   svg.style.width = rect.width;
   svg.style.height = rect.height;
-
+  console.log("svg", svg);
   let xmls = new XMLSerializer();
   const source = xmls.serializeToString(svg);
   const doctype =
@@ -122,5 +122,25 @@ export function save(svgElement, config) {
   const svgInfo = preprocess(svgElement, config);
   const defaultFileName = getDefaultFileName(svgInfo);
   const filename = config.filename || defaultFileName;
+  if (config.pdf) {
+    return printDiv(svgElement, filename);
+  }
   download(svgInfo, filename);
+}
+
+export function printDiv(ref, filename) {
+  console.log(ref.style);
+  let mywindow = window.open(
+    "",
+    "PRINT",
+    "height=650,width=900,top=100,left=150"
+  );
+  mywindow.document.write(`<html><head><title>${filename}</title>`);
+  mywindow.document.write("</head><body >");
+  mywindow.document.write(`${ref.outerHTML}`);
+  mywindow.document.write("</body></html>");
+
+  mywindow.print();
+
+  return true;
 }
