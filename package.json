@@ -1,0 +1,41 @@
+{
+  "name": "d3export",
+  "version": "1.0.0",
+  "description": "a module to export d3 svg",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "watch": "rollup -cw"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChamsBouzaiene/D3Export.git"
+  },
+  "keywords": [
+    "d3",
+    "svg",
+    "export",
+    "pdf",
+    "print",
+    "png",
+    "dom"
+  ],
+  "author": "Bouzaiene Chamsddine",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ChamsBouzaiene/D3Export/issues"
+  },
+  "homepage": "https://github.com/ChamsBouzaiene/D3Export#readme",
+  "dependencies": {
+    "rollup": "^2.33.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.28.0",
+    "typescript": "^4.0.5"
+  }
+}
